@@ -1,0 +1,293 @@
+@import url('../../common/main.css');
+ 
+ 
+ 
+:root {
+  --danger-color: #ef4444;   /* error / destructive */
+  --info-color:   #0ea5e9;   /* passive info        */
+}
+ 
+/* Quick helpers (kept local to avoid cluttering main.css) */
+:root {
+  --radius-lg: 20px;
+  --shadow-sm: 0 4px 12px rgba(0,0,0,.06);
+  --shadow-lg: 0 18px 48px rgba(0,0,0,.14);
+}
+ 
+/* ------------------------------------------------------------------
+   1. Global tweaks just for this view
+-------------------------------------------------------------------*/
+html { scroll-behavior: smooth; }                   /* nicer anchor nav */
+ 
+body.exam-details-page {                            /* add in Blade     */
+  background: radial-gradient(ellipse at top,
+               var(--light-color) 0%, #ffffff 100%);
+}
+ 
+/* ------------------------------------------------------------------
+   2. Loading overlay
+-------------------------------------------------------------------*/
+.loading-overlay {
+  position: fixed; inset: 0;
+  display: grid; place-items: center;
+  backdrop-filter: blur(10px);
+  background: linear-gradient(135deg,
+              rgba(26, 35, 126, .92) 0%,
+              rgba(124, 77, 255, .92) 100%);
+  z-index: 1050;
+}
+.loading-content { text-align: center; color: #fff; }
+.loading-text    { font-size: 1.1rem; font-weight: 500; }
+ 
+/* ------------------------------------------------------------------
+   3. Modern modal (phone login)
+-------------------------------------------------------------------*/
+.modern-modal {
+  background: rgba(255,255,255,.96);
+  border: none; border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+}
+.modern-modal .modal-header {
+  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+  background: linear-gradient(135deg,
+              var(--primary-color), var(--secondary-color));
+  color: #fff;
+}
+.modern-input {
+  border-radius: 12px; border: 2px solid #e2e8f0;
+  padding: .75rem 1rem; transition: .25s;
+}
+.modern-input:focus {
+  border-color: var(--accent-color);
+  box-shadow: 0 0 0 .2rem color-mix(in srgb,
+               var(--accent-color) 25%, transparent);
+}
+ 
+/* ------------------------------------------------------------------
+   4. Glass cards & basic elevation
+-------------------------------------------------------------------*/
+.glass-card {
+  position: relative;
+  background: rgba(255,255,255,.95);
+  backdrop-filter: blur(18px);
+  border: 1px solid rgba(255,255,255,.22);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  transition: transform .3s cubic-bezier(.25,.46,.45,.94),
+              box-shadow .3s;
+}
+.glass-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+}
+ 
+/* ------------------------------------------------------------------
+   5. Exam card (left column)
+-------------------------------------------------------------------*/
+.exam-card { overflow: hidden; }
+ 
+/* --- hero image --- */
+.exam-image-wrapper { position: relative; }
+.exam-image {
+  width: 100%; height: clamp(220px, 28vh, 320px);
+  aspect-ratio: 4 / 3;           /* keeps cards equal height */
+  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+  background: linear-gradient(135deg,#667eea 0%,#764ba2 100%);
+  overflow: hidden;
+}
+.exam-header-img {
+  width:100%; height:100%; object-fit: contain;
+  transition: transform .5s;
+}
+.exam-image:hover .exam-header-img { transform: scale(1.05); }
+ 
+/* overlay when no image */
+.default-exam-img {
+  display:flex; place-items:center; place-content:center;
+  color:rgba(255,255,255,.82); font-size:3rem;
+}
+ 
+/* semi-transparent dark veil with icon */
+.image-overlay {
+  position:absolute; inset:0; display:grid; place-items:center;
+  background:rgba(0,0,0,.28); color:#fff; font-size:3rem;
+}
+ 
+/* --- badges --- */
+.image-badges {
+  position:absolute; top:14px; right:14px;
+  display:flex; flex-direction:column; gap:8px;
+}
+.badge-container { display:flex; justify-content:flex-end; }
+ 
+.status-badge, .pricing-badge {
+  padding:6px 12px; border-radius:999px;
+  font-size:.75rem; font-weight:600; text-transform:uppercase;
+  backdrop-filter: blur(10px);
+  border:1px solid rgba(255,255,255,.25);
+}
+.status-badge.published { background:linear-gradient(135deg,#10b981,#059669); color:#fff; }
+.status-badge.draft     { background:linear-gradient(135deg,#f59e0b,#d97706); color:#fff; }
+.pricing-badge.paid     { background:linear-gradient(135deg,#ef4444,#dc2626); color:#fff; }
+.pricing-badge.free     { background:linear-gradient(135deg,#10b981,#059669); color:#fff; }
+ 
+/* --- price panel --- */
+.pricing-section { text-align:center; padding:1rem 0; }
+ 
+.pricing-display     { display:flex; flex-direction:column; gap:6px; position:relative; }
+.current-price {
+  font-size:clamp(2rem, 4.5vw, 2.75rem); font-weight:700;
+  background:linear-gradient(135deg,var(--primary-color),var(--accent-color));
+  -webkit-background-clip:text; -webkit-text-fill-color:transparent;
+}
+.free-price {
+  background:linear-gradient(135deg,var(--success-color),#059669);
+  -webkit-background-clip:text; -webkit-text-fill-color:transparent;
+}
+.original-price { font-size:1.05rem; text-decoration:line-through; color:#6b7280; opacity:.75; }
+.discount-badge {
+  position:absolute; top:-10px; right:-18px;
+  background:linear-gradient(135deg,#ef4444,#dc2626);
+  color:#fff; padding:4px 12px; border-radius:12px;
+  font-size:.7rem; font-weight:600; transform:rotate(12deg);
+}
+ 
+/* ------------------------------------------------------------------
+   6. Fancy buttons with ripple
+-------------------------------------------------------------------*/
+.modern-btn {
+  position:relative; overflow:hidden;
+  border:none; border-radius:15px;
+  font-weight:600; letter-spacing:.4px;
+  padding:.85rem 1.2rem; transition:.25s;
+  user-select:none;
+}
+.modern-btn.btn-primary {
+  background:linear-gradient(135deg,var(--primary-color),var(--accent-color));
+  color:#fff; box-shadow:0 6px 18px rgba(79,70,229,.25);
+}
+.modern-btn.btn-success {
+  background:linear-gradient(135deg,var(--success-color),#059669);
+  color:#fff; box-shadow:0 6px 18px rgba(16,185,129,.26);
+}
+.modern-btn:hover { transform:translateY(-2px); box-shadow:0 10px 32px rgba(0,0,0,.12); }
+.modern-btn:active { transform:scale(.97); }
+ 
+.btn-ripple {
+  position:absolute; border-radius:50%;
+  background:rgba(255,255,255,.45); pointer-events:none;
+  transform:scale(0); opacity:0;
+}
+.ripple-animate { animation:ripple .6s ease-out; }
+@keyframes ripple { to { transform:scale(4); opacity:0; } }
+ 
+/* disabled look */
+.btn-disabled,
+.btn-disabled:hover,
+.btn-disabled:focus {
+  opacity:.55; cursor:not-allowed; transform:none !important; box-shadow:none !important;
+}
+ 
+/* attempt warning */
+.attempts-warning { font-size:.9rem; font-weight:500; color:var(--danger-color); text-align:center; }
+ 
+/* ------------------------------------------------------------------
+   7. Exam details (right column)
+-------------------------------------------------------------------*/
+.exam-details-card { display:flex; flex-direction:column; }
+ 
+.exam-header    { position:relative; padding-bottom:.5rem; }
+.exam-title     {
+  font-size:clamp(1.75rem,3.8vw,2.3rem); font-weight:700; margin:0;
+  background:linear-gradient(135deg,var(--primary-color),var(--accent-color));
+  -webkit-background-clip:text; -webkit-text-fill-color:transparent;
+}
+.title-underline {
+  width:64px; height:4px; margin-top:.4rem;
+  border-radius:4px;
+  background:linear-gradient(135deg,var(--primary-color),var(--accent-color));
+}
+ 
+/* quick-stats grid */
+.quick-stats .stat-item {
+  display:flex; gap:.7rem; align-items:center;
+  padding:1rem; border-radius:15px;
+  background:var(--light-color);
+  box-shadow:var(--shadow-sm); transition:transform .25s;
+}
+.quick-stats .stat-item:hover { transform:translateY(-3px); }
+ 
+.stat-icon {
+  flex:0 0 44px; height:44px; display:grid; place-items:center;
+  border-radius:50%; background:color-mix(in srgb,
+               var(--primary-color) 12%, transparent);
+  color:var(--primary-color); font-size:1.1rem;
+}
+.stat-label  { display:block; font-size:.78rem; color:#6b7280; }
+.stat-value  { font-size:1.05rem; font-weight:600; }
+ 
+/* info alert */
+.info-alert {
+  display:flex; gap:.75rem; padding:1rem;
+  border:1px solid color-mix(in srgb, var(--info-color) 18%, transparent);
+  border-radius:15px;
+  background:color-mix(in srgb, var(--info-color) 6%, transparent);
+}
+.alert-icon    { font-size:1.25rem; color:var(--info-color); margin-top:.1rem; }
+.alert-content { font-size:.95rem; color:var(--dark-color); }
+ 
+/* ------------------------------------------------------------------
+   8. Description / instructions tabs
+-------------------------------------------------------------------*/
+.custom-nav-pills .nav-link {
+  border-radius:12px; font-weight:600; color:#374151; transition:.25s;
+}
+.custom-nav-pills .nav-link:hover,
+.custom-nav-pills .nav-link.active {
+  color:#fff;
+  background:linear-gradient(135deg,var(--primary-color),var(--accent-color));
+}
+ 
+.tab-content .content-box {
+  padding-top:1.5rem;
+  max-height:260px; overflow-y:auto;
+  line-height:1.6;
+  accent-color:var(--primary-color);      /* improves list markers */
+}
+ 
+/* ------------------------------------------------------------------
+   9. Associated info cards
+-------------------------------------------------------------------*/
+.info-card .info-header { display:flex; gap:.75rem; margin-bottom:.8rem; }
+.info-card .info-icon {
+  width:42px; height:42px; display:grid; place-items:center;
+  background:color-mix(in srgb, var(--primary-color) 12%, transparent);
+  border-radius:12px; color:var(--primary-color); font-size:1.25rem;
+}
+.info-card .info-title   { font-size:1.05rem; font-weight:600; }
+.info-card .info-content { font-size:.95rem; color:#374151; }
+ 
+/* ------------------------------------------------------------------
+   10. Motion helpers (float-pulse already in main.css)
+-------------------------------------------------------------------*/
+.float-pulse { animation:floatPulse 3s ease-in-out infinite; }
+@keyframes floatPulse {
+  0%,100% { transform:translateY(0); }
+  50%     { transform:translateY(-6px); }
+}
+ 
+/* ------------------------------------------------------------------
+   11. Responsive tweaks
+-------------------------------------------------------------------*/
+@media (max-width: 991.98px) {
+  .exam-image        { height:clamp(200px, 32vw, 260px); }
+  .exam-title        { font-size:1.6rem; }
+  .pricing-section   { padding:.85rem 0; }
+}
+@media (max-width: 767.98px) {
+  .exam-image        { height:clamp(170px,40vw,220px); }
+  .tab-content .content-box { max-height:220px; }
+  .quick-stats .stat-item { padding:.8rem; }
+}
+ 
+ 

@@ -1,0 +1,194 @@
+/* public/css/pages/result/manageResult.css */
+@import url('../../common/main.css');
+
+/* Glass effect container */
+.glass-effect {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Buttons */
+.btn-primary,
+.gradient-btn {
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+  color: #fff;
+  transition: all 0.2s ease;
+}
+.btn-primary:hover,
+.gradient-btn:hover {
+  background-color: var(--secondary-color);
+  border-color: var(--secondary-color);
+  transform: translateY(-1px);
+  box-shadow:
+    0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+/* Export buttons */
+.btn-success {
+  --bs-btn-bg: var(--success-color);
+  --bs-btn-border-color: var(--success-color);
+}
+.btn-info {
+  --bs-btn-bg: var(--info-color);
+  --bs-btn-border-color: var(--info-color);
+}
+
+/* Table */
+.table-responsive {
+  overflow-x: auto !important;
+  -webkit-overflow-scrolling: touch;
+}
+.table-responsive table {
+  width: 100%;
+  min-width: 0;
+  table-layout: auto;
+}
+.table th {
+  background-color: var(--light-color);
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  letter-spacing: 0.5px;
+}
+.table-hover tbody tr:hover {
+  background-color: var(--light-color-2);
+}
+
+/* Sortable headers */
+.sortable {
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+.sortable:hover {
+  background-color: rgba(var(--primary-rgb), 0.05);
+}
+
+/* Badges */
+.badge-published {
+  background-color: rgba(16, 185, 129, 0.1);
+  color: var(--success-color);
+}
+.badge-unpublished {
+  background-color: rgba(220, 53, 69, 0.1);
+  color: var(--danger-color);
+}
+
+/* Avatar initial */
+.student-avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background-color: var(--primary-color);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+}
+
+/* Action buttons */
+.action-btn {
+  padding: 0.5rem;
+  border-radius: 0.375rem;
+  transition: transform 0.2s;
+}
+.action-btn:hover {
+  transform: scale(1.05);
+}
+
+/* Icons hover */
+.action-btn i {
+  font-size: 1rem;
+}
+
+/* Pagination (match manageMentor style) */
+.pagination-btn {
+  background-color: var(--light-color);
+  border: 1px solid var(--border-color);
+  padding: 0.375rem 0.75rem;
+  border-radius: 0.25rem;
+  color: var(--primary-color);
+  transition: background-color 0.2s, transform 0.2s;
+}
+.pagination-btn:hover:not(:disabled) {
+  background-color: var(--primary-color);
+  color: #fff;
+  transform: translateY(-1px);
+}
+.pagination-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Breadcrumb */
+.breadcrumb {
+  background-color: transparent;
+  padding: 0;
+  margin-bottom: 1rem;
+}
+.breadcrumb-item a {
+  color: var(--primary-color);
+  text-decoration: none;
+}
+.breadcrumb-item.active {
+  color: var(--text-muted);
+}
+
+/* Search/filter icons */
+.position-relative .fas {
+  color: var(--text-muted);
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--light-color);
+}
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* Responsive tweaks */
+@media (max-width: 768px) {
+  .btn,
+  .pagination-btn {
+    padding: 0.25rem 0.5rem;
+    font-size: 0.875rem;
+  }
+  .table th,
+  .table td {
+    padding: 0.5rem;
+    font-size: 0.875rem;
+  }
+  .student-avatar {
+    width: 28px;
+    height: 28px;
+    font-size: 0.875rem;
+  }
+}
+
+/* Calendar/date icon spacing */
+.d-none.d-sm-flex i {
+  margin-right: 0.5rem;
+}
+
+/* Sync apply button */
+.btn-info {
+  color: #fff;
+}
+
+/* Loading spinner container */
+#loading-row .spinner-border {
+  width: 3rem;
+  height: 3rem;
+}

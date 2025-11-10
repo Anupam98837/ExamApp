@@ -1,0 +1,271 @@
+/* ───────────────────────── viewExam.css ───────────────────────── */
+@import url('../../common/main.css');
+ 
+/* ================== 1. Layout: scrollable card grid ================== */
+/* #examCardsRow {
+ 
+    max-height: calc(100vh - 260px);
+    overflow-y: auto;
+    padding-right: .25rem;          
+    scroll-behavior: smooth;
+}
+  */
+/* Custom scrollbar – WebKit (Chrome, Edge, Safari) */
+#examCardsRow::-webkit-scrollbar {
+    width: 8px;
+}
+#examCardsRow::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+}
+#examCardsRow::-webkit-scrollbar-thumb {
+    background: var(--secondary-color);
+    border-radius: 10px;
+}
+#examCardsRow::-webkit-scrollbar-thumb:hover {
+    background: var(--accent-color);
+}
+ 
+/* Custom scrollbar – Firefox */
+
+ 
+/* ================== 2. Card aesthetic tweaks ================== */
+.exam-card {
+    background: rgba(255, 255, 255, 0.96);
+    backdrop-filter: blur(14px);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    /* border-radius: 22px; */
+    box-shadow: 0 10px 28px rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+    transition: transform .35s cubic-bezier(.4,0,.2,1), box-shadow .35s cubic-bezier(.4,0,.2,1);
+}
+ 
+.exam-card:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 22px 48px rgba(0, 0, 0, 0.13);
+}
+ 
+/* Gradient top bar */
+.exam-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 4px;
+    background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+}
+ 
+/* Thumbnail */
+.exam-card-img {
+    width: 100%;
+    aspect-ratio: 16/9;
+    object-fit: cover;
+    filter: saturate(1.05) contrast(1.05);
+    transition: filter .4s ease;
+}
+.exam-card:hover .exam-card-img {
+    filter: saturate(1.15) contrast(1.1);
+}
+ 
+/* Body */
+.exam-card-body {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 1.7rem 1.6rem 1.5rem;
+}
+ 
+/* Title & description */
+.exam-card-title {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #243447;
+    line-height: 1.25;
+}
+.exam-card-description {
+    flex-grow: 1;
+    margin: .75rem 0 1rem;
+    color: #091933 !important;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+ 
+/* CTA button */
+.exam-button {
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+    border: none;
+    color: #fff;
+    padding: .8rem 1.4rem;
+    border-radius: 30px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: .45px;
+    transition: transform .3s cubic-bezier(.4,0,.2,1), box-shadow .3s;
+}
+.exam-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 22px rgba(0,0,0,0.18);
+}
+.exam-button::before {      /* shiny slide highlight */
+    content: '';
+    position: absolute;
+    top: 0; left: -100%;
+    width: 100%; height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,.35), transparent);
+    transition: left .6s;
+}
+.exam-button:hover::before { left: 100%; }
+ 
+/* Ripple effect (shared with hero buttons) */
+.ripple {
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(255,255,255,.6);
+    transform: scale(0);
+    pointer-events: none;
+    animation: ripple-animation .6s linear;
+}
+@keyframes ripple-animation {
+    to { transform: scale(4); opacity: 0; }
+}
+ 
+/* Mobile tweaks */
+@media (max-width: 575.98px) {
+    .exam-card-title       { font-size: 1.15rem; }
+    .exam-card-description { -webkit-line-clamp: 4; }
+}
+ 
+/* Ensure fade-in script doesn’t interfere with our transforms */
+.exam-card:not(.fade-in-up) {
+    opacity: 1 !important;
+    transform: none !important;
+}
+/* ───────────────────────── End of file ───────────────────────── */
+/* ============== 3. Sidebar polish ================= */
+#courseSidebar{
+    /* background: rgba(255,255,255,0.96); */
+    backdrop-filter: blur(14px);
+    border: 1px solid rgba(255,255,255,0.25);
+    /* border-radius: 20px; */
+    box-shadow: 0 8px 26px rgba(0,0,0,0.06);
+    overflow: hidden;
+}
+ 
+/* Sidebar items */
+#courseSidebar .list-group-item{
+    border: none;                         /* remove Bootstrap border */
+    padding: .85rem 1.25rem;
+    font-weight: 600;
+    letter-spacing: .3px;
+    color: #4a5568;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: background .3s, color .3s;
+}
+
+ 
+#courseSidebar .list-group-item:hover{
+    background: rgba(0,0,0,0.035);
+    color: var(--primary-color);
+}
+ 
+/* Active item gets a soft gradient pill */
+#courseSidebar .list-group-item.active{
+    background: linear-gradient(135deg,var(--primary-color),var(--secondary-color));
+    color: #fff;
+    position: relative;
+}
+ 
+#courseSidebar .list-group-item.active::before{
+    content:'';
+    position:absolute;left:0;top:0;height:100%;width:6px;
+    background: var(--accent-color);
+}
+ 
+/* Optional scrollbar if the list gets long */
+#courseSidebar{
+    max-height: calc(100vh - 260px);
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: var(--primary-color) transparent;
+}
+#courseSidebar::-webkit-scrollbar        {width: 6px;}
+#courseSidebar::-webkit-scrollbar-thumb  {background: var(--primary-color);border-radius:10px;}
+#courseSidebar::-webkit-scrollbar-track  {background: transparent;}
+ 
+/* ============== 4. “View More” CTA ================= */
+#viewMoreBtn{
+    position: relative;
+    overflow: hidden;
+    border: none;
+    padding: .95rem 3.75rem;
+    border-radius: 50px;
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: .5px;
+    text-transform: uppercase;
+    background: transparent;
+    color: var(--primary-color);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+    backdrop-filter: blur(12px);
+    transition: background .35s, transform .35s, box-shadow .35s;
+}
+ 
+/* Outline “ring” border via inset box-shadow */
+#viewMoreBtn::after{
+    content:'';
+    position:absolute;inset:0;
+    border-radius: inherit;
+    box-shadow: inset 0 0 0 2px var(--primary-color);
+    pointer-events:none;
+    transition: opacity .35s;
+}
+ 
+#viewMoreBtn:hover{
+    transform: translateY(-3px);
+    background: linear-gradient(135deg,var(--primary-color),var(--secondary-color));
+    color: #fff;
+    box-shadow: 0 14px 34px rgba(0,0,0,0.12);
+}
+#viewMoreBtn:hover::after{ opacity: 0; }          /* hide outline on hover */
+ 
+/* Badge – keep it pill-shaped and bold */
+#viewMoreBtn .badge{
+    background: #fff;
+   
+    font-weight: 700;
+    border-radius: 999px;
+ 
+}
+ 
+ 
+/* ───────────────────────── add-on ends ───────────────────────── */
+ /* Replace the old #examCardsRow rules with this */
+#examScrollArea{
+  max-height: 120vh;   /* leave room for navbar/header */
+  overflow-y: auto;
+  padding-right: .25rem;
+  scroll-behavior: smooth;
+  overflow-x:hidden;
+}
+
+/* Custom scrollbar (was on #examCardsRow) */
+#examScrollArea::-webkit-scrollbar      { width: 10px; }
+#examScrollArea::-webkit-scrollbar-track{ background:#f1f1f1;border-radius:10px; }
+#examScrollArea::-webkit-scrollbar-thumb{ background:var(--secondary-color);border-radius:10px; }
+#examScrollArea::-webkit-scrollbar-thumb:hover{ background:var(--accent-color); }
+
+#examScrollArea{
+  scrollbar-width: thin;
+  scrollbar-color: var(--secondary-color) #f1f1f1;
+}
+
+.calendar-date-wrapper{ display:none !important; }
+
+
+
+ 

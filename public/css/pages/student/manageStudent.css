@@ -1,0 +1,221 @@
+/* public/css/pages/manageStudent.css */
+@import url('../../common/main.css');
+
+/* Base styles */
+.manage-student-container {
+    background-color: var(--light-color);
+    color: var(--text-color);
+}
+
+/* Breadcrumb */
+.breadcrumb {
+    background-color: transparent;
+    padding: 0;
+    margin-bottom: 0.5rem;
+}
+
+.breadcrumb-item a {
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+
+
+.breadcrumb-item + .breadcrumb-item::before {
+    color: var(--text-muted);
+}
+
+/* Buttons */
+.btn-primary {
+    --bs-btn-bg: var(--primary-color);
+    --bs-btn-border-color: var(--primary-color);
+    --bs-btn-hover-bg: var(--primary-dark);
+    --bs-btn-hover-border-color: var(--primary-dark);
+    --bs-btn-active-bg: var(--primary-dark);
+    --bs-btn-active-border-color: var(--primary-dark);
+}
+
+.btn-info {
+    --bs-btn-bg: var(--info-color);
+    --bs-btn-border-color: var(--info-color);
+}
+
+.btn-success {
+    --bs-btn-bg: var(--success-color);
+    --bs-btn-border-color: var(--success-color);
+}
+
+.btn-outline-primary {
+    --bs-btn-color: var(--primary-color);
+    --bs-btn-border-color: var(--primary-color);
+    --bs-btn-hover-bg: var(--primary-color);
+}
+
+.btn-outline-success {
+    --bs-btn-color: var(--success-color);
+    --bs-btn-border-color: var(--success-color);
+    --bs-btn-hover-bg: var(--success-color);
+}
+
+.btn-outline-warning {
+    --bs-btn-color: var(--warning-color);
+    --bs-btn-border-color: var(--warning-color);
+    --bs-btn-hover-bg: var(--warning-color);
+}
+
+/* Tabs */
+.nav-tabs {
+    border-bottom-color: var(--border-color);
+}
+
+.nav-tabs .nav-link {
+    color: var(--text-color);
+    border-color: transparent;
+    margin-bottom: -1px;
+}
+
+.nav-tabs .nav-link:hover {
+    border-color: var(--border-color);
+    isolation: isolate;
+}
+
+.nav-tabs .nav-link.active {
+    color: #fff;
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+/* Table */
+.table {
+    --bs-table-bg: transparent;
+    --bs-table-striped-bg: var(--light-color-2);
+    --bs-table-hover-bg: var(--light-color-2);
+    color: var(--text-color);
+}
+
+.table th {
+    background-color: var(--light-color-2);
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    letter-spacing: 0.5px;
+}
+
+.table-hover > tbody > tr:hover {
+    --bs-table-accent-bg: var(--light-color-2);
+}
+
+/* Sortable headers */
+.sortable {
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.sortable:hover {
+    background-color: rgba(var(--primary-rgb), 0.05);
+}
+
+/* Status badges */
+.badge {
+    font-weight: 500;
+    padding: 0.35em 0.65em;
+    font-size: 0.75em;
+}
+
+.badge.bg-success {
+    background-color: var(--success-color) !important;
+}
+
+.badge.bg-secondary {
+    background-color: var(--secondary-color) !important;
+}
+
+/* Modal */
+.modal-content {
+    background-color: var(--light-color);
+    color: var(--text-color);
+    border: 1px solid var(--border-color);
+}
+
+.modal-header {
+    border-bottom-color: var(--border-color);
+    background-color: var(--primary-color);
+    color: #fff;
+}
+
+.modal-footer {
+    border-top-color: var(--border-color);
+}
+
+/* Form controls */
+.form-control, .form-select {
+    background-color: var(--light-color);
+    color: var(--text-color);
+    border-color: var(--border-color);
+}
+
+.form-control:focus, .form-select:focus {
+    background-color: var(--light-color);
+    color: var(--text-color);
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 0.25rem rgba(var(--primary-rgb), 0.25);
+}
+
+.form-label {
+    color: var(--text-color);
+}
+
+/* Pagination */
+.page-link {
+    background-color: var(--light-color);
+    color: var(--primary-color);
+    border-color: var(--border-color);
+}
+
+.page-item.active .page-link {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+    color: #fff;
+}
+
+.page-item.disabled .page-link {
+    color: var(--text-muted);
+    background-color: var(--light-color);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    /* .table-responsive {
+        border: 1px solid var(--border-color);
+        border-radius: 0.375rem;
+    } */
+    
+    .breadcrumb {
+        font-size: 0.875rem;
+    }
+    
+    .btn {
+        padding: 0.25rem 0.5rem;
+        font-size: 0.875rem;
+    }
+    
+    .table th, .table td {
+        padding: 0.5rem;
+        font-size: 0.875rem;
+    }
+}
+
+/* Password field */
+.password-field {
+    font-family: monospace;
+    cursor: pointer;
+}
+
+/* Action icons */
+.action-icon {
+    transition: color 0.2s;
+}
+
+.action-icon:hover {
+    color: var(--primary-dark);
+}

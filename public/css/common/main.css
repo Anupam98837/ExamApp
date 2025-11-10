@@ -1,0 +1,354 @@
+/* main.css */
+/* //main */
+:root {
+    --primary-color: #1a237e;
+    --secondary-color: #303f9f;
+    --accent-color: #7c4dff;
+    --light-color: #f8fafc;
+    --dark-color: #0d1b42;
+    --success-color: #10b981;
+    --warning-color: #f59e0b;
+    
+  }
+ /* Ocean Breeze */
+/* :root {
+  --primary-color: #0288d1;
+  --secondary-color: #26c6da;
+  --accent-color: #00acc1;
+  --light-color: #e0f7fa;
+  --dark-color: #01579b;
+  --success-color: #2e7d32;
+  --warning-color: #fbc02d;
+} */
+/* Minty Forest */
+/* :root {
+  --primary-color: #388e3c;
+  --secondary-color: #81c784;
+  --accent-color: #aed581;
+  --light-color: #f1f8e9;
+  --dark-color: #1b5e20;
+  --success-color: #4caf50;
+  --warning-color: #ffb300;
+} */
+/* Peach Blossom */
+/* :root {
+  --primary-color: #ff6f91;
+  --secondary-color: #ffc1cc;
+  --accent-color: #ffb347;
+  --light-color: #fff0f5;
+  --dark-color: #800040;
+  --success-color: #81c784;
+  --warning-color: #ff9800;
+} */
+/* Golden Sunrise */
+/* :root {
+  --primary-color: #f59e0b;
+  --secondary-color: #f97316;
+  --accent-color: #ef4444;
+  --light-color: #fffbea;
+  --dark-color: #78350f;
+  --success-color: #84cc16;
+  --warning-color: #eab308;
+} */
+
+/* Red & Blackish */
+/* :root {
+  --primary-color: #b71c1c;
+  --secondary-color: #000000;
+  --accent-color: #ff1744;
+  --light-color: #f5f5f5;
+  --dark-color: #1a0000;
+  --success-color: #c62828;
+  --warning-color: #ff8f00;
+} */
+
+/* Light Blue Breeze */
+/* :root {
+  --primary-color: #03a9f4;
+  --secondary-color: #81d4fa;
+  --accent-color: #0288d1;
+  --light-color: #e1f5fe;
+  --dark-color: #01579b;
+  --success-color: #4db6ac;
+  --warning-color: #ffb74d;
+} */
+
+/* Sunset Glow */
+/* :root {
+  --primary-color: #ff5722;
+  --secondary-color: #ff8a65;
+  --accent-color: #ffca28;
+  --light-color: #fff8e1;
+  --dark-color: #bf360c;
+  --success-color: #8bc34a;
+  --warning-color: #f44336;
+} */
+
+/* Midnight Purple */
+/* :root {
+  --primary-color: #4a148c;
+  --secondary-color: #7c43bd;
+  --accent-color: #e040fb;
+  --light-color: #f3e5f5;
+  --dark-color: #12005e;
+  --success-color: #66bb6a;
+  --warning-color: #ffa726;
+} */
+
+/* Forest Mist */
+/* :root {
+  --primary-color: #2e7d32;
+  --secondary-color: #66bb6a;
+  --accent-color: #a5d6a7;
+  --light-color: #e8f5e9;
+  --dark-color: #1b5e20;
+  --success-color: #43a047;
+  --warning-color: #ffca28;
+} */
+/* Pastel Dreams */
+/* :root {
+  --primary-color: #ffd1dc;
+  --secondary-color: #f0e5ff;
+  --accent-color: #b3f2ff;
+  --light-color: #ffffff;
+  --dark-color: #c8b6ff;
+  --success-color: #a8e6cf;
+  --warning-color: #ffaaa5;
+} */
+
+/* Cotton Candy */
+/* :root {
+  --primary-color: #ffccd5;
+  --secondary-color: #ffe4e1;
+  --accent-color: #ffb3c6;
+  --light-color: #fff9fb;
+  --dark-color: #ff8ba7;
+  --success-color: #c1fba4;
+  --warning-color: #ffd97d;
+} */
+
+/* Minty Meadow */
+/* :root {
+  --primary-color: #c8f7dc;
+  --secondary-color: #edfbe7;
+  --accent-color: #a8e6cf;
+  --light-color: #f7fffa;
+  --dark-color: #7fbfb3;
+  --success-color: #bdecb6;
+  --warning-color: #ffe6a7;
+} */
+
+/* Soft Blossom */
+/* :root {
+  --primary-color: #ffe5ec;
+  --secondary-color: #fff0f5;
+  --accent-color: #ffd6e8;
+  --light-color: #ffffff;
+  --dark-color: #ff9fbf;
+  --success-color: #b8e0d2;
+  --warning-color: #ffdd91;
+} */
+
+
+/* Industrial Steel */
+/* :root {
+  --primary-color: #555555;
+  --secondary-color: #777777;
+  --accent-color: #999999;
+  --light-color: #dddddd;
+  --dark-color: #222222;
+  --success-color: #00a300;
+  --warning-color: #ffaa00;
+} */
+
+/* Volcanic Ash */
+/* :root {
+  --primary-color: #4b4b4b;
+  --secondary-color: #6e6e6e;
+  --accent-color: #b22222;
+  --light-color: #e0e0e0;
+  --dark-color: #1a1a1a;
+  --success-color: #5c9e31;
+  --warning-color: #f2b134;
+} */
+
+/* Stealth Mode */
+/* :root {
+  --primary-color: #1c1c1c;
+  --secondary-color: #2e2e2e;
+  --accent-color: #444444;
+  --light-color: #f2f2f2;
+  --dark-color: #000000;
+  --success-color: #3a7d44;
+  --warning-color: #ca5e47;
+} */
+
+
+  
+  /* Global typography */
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap');
+  
+  body {
+    font-family: 'Inter', sans-serif;
+    color: var(--dark-color);
+    background-color: var(--light-color);
+    margin: 0;
+    padding: 0;
+  }
+  
+  a {
+    text-decoration: none;
+    color: var(--primary-color);
+  }
+  
+  a:hover {
+    color: var(--secondary-color);
+  }
+  
+  /* Utility classes */
+  .text-primary {
+    color: var(--primary-color) !important;
+  }
+  .text-secondary {
+    color: var(--secondary-color) !important;
+  }
+  .bg-primary {
+    background-color: var(--primary-color) !important;
+  }
+  .bg-secondary {
+    background-color: var(--secondary-color) !important;
+  }
+  .btn-primary {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+  }
+  .btn-primary:hover {
+    background-color: var(--secondary-color);
+    border-color: var(--secondary-color);
+  }
+  
+  /* Form elements */
+  .form-control:focus {
+    border-color: var(--accent-color);
+    box-shadow: 0 0 0 .2rem rgba(124, 77, 255, .25);
+  }
+  
+  /* Heading styles */
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Poppins', sans-serif;
+  }
+  
+  /* Font-size utilities (10px – 20px) */
+/* Font-size utilities (10px – 50px) */
+.text-10 { font-size: 10px !important; }
+.text-11 { font-size: 11px !important; }
+.text-12 { font-size: 12px !important; }
+.text-13 { font-size: 13px !important; }
+.text-14 { font-size: 14px !important; }
+.text-15 { font-size: 15px !important; }
+.text-16 { font-size: 16px !important; }
+.text-17 { font-size: 17px !important; }
+.text-18 { font-size: 18px !important; }
+.text-19 { font-size: 19px !important; }
+.text-20 { font-size: 20px !important; }
+.text-21 { font-size: 21px !important; }
+.text-22 { font-size: 22px !important; }
+.text-23 { font-size: 23px !important; }
+.text-24 { font-size: 24px !important; }
+.text-25 { font-size: 25px !important; }
+.text-26 { font-size: 26px !important; }
+.text-27 { font-size: 27px !important; }
+.text-28 { font-size: 28px !important; }
+.text-29 { font-size: 29px !important; }
+.text-30 { font-size: 30px !important; }
+.text-31 { font-size: 31px !important; }
+.text-32 { font-size: 32px !important; }
+.text-33 { font-size: 33px !important; }
+.text-34 { font-size: 34px !important; }
+.text-35 { font-size: 35px !important; }
+.text-36 { font-size: 36px !important; }
+.text-37 { font-size: 37px !important; }
+.text-38 { font-size: 38px !important; }
+.text-39 { font-size: 39px !important; }
+.text-40 { font-size: 40px !important; }
+.text-41 { font-size: 41px !important; }
+.text-42 { font-size: 42px !important; }
+.text-43 { font-size: 43px !important; }
+.text-44 { font-size: 44px !important; }
+.text-45 { font-size: 45px !important; }
+.text-46 { font-size: 46px !important; }
+.text-47 { font-size: 47px !important; }
+.text-48 { font-size: 48px !important; }
+.text-49 { font-size: 49px !important; }
+.text-50 { font-size: 50px !important; }
+
+
+/* Floating animation utilities */
+
+/* Keyframes */
+@keyframes float-up {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-10px); }
+}
+@keyframes float-down {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(10px); }
+}
+@keyframes float-left {
+  0%, 100% { transform: translateX(0); }
+  50%      { transform: translateX(-10px); }
+}
+@keyframes float-right {
+  0%, 100% { transform: translateX(0); }
+  50%      { transform: translateX(10px); }
+}
+@keyframes float-rotate {
+  0%   { transform: rotate(0deg); }
+  50%  { transform: rotate(5deg); }
+  100% { transform: rotate(0deg); }
+}
+@keyframes float-pulse {
+  0%, 100% { transform: scale(1); }
+  50%      { transform: scale(1.05); }
+}
+
+/* Animation classes */
+.float-up {
+  animation: float-up 3s ease-in-out infinite;
+}
+.float-down {
+  animation: float-down 3s ease-in-out infinite;
+}
+.float-left {
+  animation: float-left 3s ease-in-out infinite;
+}
+.float-right {
+  animation: float-right 3s ease-in-out infinite;
+}
+.float-rotate {
+  animation: float-rotate 4s ease-in-out infinite;
+}
+.float-pulse {
+  animation: float-pulse 2s ease-in-out infinite;
+}
+
+/* Utility to customize duration */
+.float-slow   { animation-duration: 5s !important; }
+.float-fast   { animation-duration: 1.5s !important; }
+.float-hover  { animation-play-state: paused; }
+.float-hover:hover { animation-play-state: running; }
+
+/* Blink animation */
+@keyframes blink {
+  0%, 50%, 100% { opacity: 1; }
+  25%, 75%       { opacity: 0; }
+}
+
+/* Animation class */
+.blink {
+  animation: blink 1.5s step-end infinite;
+}
+
+/* Optional modifiers */
+.blink-fast { animation-duration: 0.75s !important; }
+.blink-slow { animation-duration: 3s !important; }

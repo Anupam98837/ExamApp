@@ -1,0 +1,97 @@
+@import url('../../common/main.css');
+
+/* Small-screen: hide label text */
+@media (max-width: 576px) {
+  .label-text {
+    display: none;
+  }
+}
+
+/* Floating blobs */
+.blob {
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0.12;
+  animation: float 8s ease-in-out infinite;
+  z-index: -1;
+}
+.blob1 { width: 300px; height: 300px; background: var(--accent-color); top: -100px; right: -100px; }
+.blob2 { width: 220px; height: 220px; background: var(--primary-color); bottom: -80px; left: -80px; }
+
+/* Profile card */
+.profile-card {
+  width: 100%;
+  border: none;
+  border-radius: 1rem;
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+  backdrop-filter: blur(12px);
+  background: rgba(255,255,255,0.75);
+  position: relative; z-index: 1;
+}
+
+/* Header */
+.gradient-bg {
+  background: linear-gradient(135deg, var(--primary-color) 0%, var(--accent-color) 100%) !important;
+}
+
+/* Photo */
+.profile-img {
+  width: 120px; height: 120px;
+  object-fit: cover;
+  border: 3px solid var(--light-color);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+/* Table styling */
+.profile-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.profile-table th,
+.profile-table td {
+  padding: 0.75rem 1rem;
+  font-size: 0.95rem;
+  border: none;
+  border-bottom: 1px solid var(--light-color);
+}
+.profile-table th i {
+  color: var(--primary-color);
+  margin-right: 0.5rem;
+}
+.profile-table th {
+  text-align: left; font-weight: 500; color: var(--dark-color); width: 40%;
+}
+.profile-table td {
+  text-align: right; color: var(--dark-color);
+}
+
+/* Stripes */
+.profile-table.table-striped tbody tr:nth-of-type(odd) {
+  background-color: rgba(224, 247, 250, 0.3);
+}
+
+/* Badges & status */
+.badge-paid { background-color: rgba(59,130,246,0.1); color: var(--info-color); }
+.badge-free { background-color: rgba(156,163,175,0.1); color: var(--text-muted); }
+.status-indicator {
+  display: inline-block; width: 10px; height: 10px; border-radius: 50%; margin-right: 6px; vertical-align: middle;
+}
+.status-active   { background-color: var(--success-color); }
+.status-inactive { background-color: var(--danger-color); }
+
+/* Buttons */
+.action-btn {
+  padding: 0.6rem 1.2rem; border-radius: 0.5rem; font-size: 0.9rem;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.action-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.12);
+}
+
+/* Float keyframes */
+@keyframes float {
+  0%,100% { transform: translateY(0); }
+  50%     { transform: translateY(-15px); }
+}
